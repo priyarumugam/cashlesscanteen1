@@ -1,0 +1,88 @@
+const express = require('express');
+const path = require('path');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+mongoose.connect('mongodb://127.0.0.1:27017/banktrans', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const db = mongoose.connection;
+
+db.on('error', (err) => {
+  console.error('MongoDB connection error:', err);
+});
+
+db.once('open', () => {
+  console.log('Connected to MongoDB');
+});
+
+// Define the payment schema
+const paymentSchema = new mongoose.Schema({
+  amount: {
+    type: Number,
+    required: true,
+  },
+});
+
+// Create a model based on the payment schema
+const Payment = mongoose.model('Payment', paymentSchema);
+
+// Route to render the QR view
+app.get('/', (req, res) => {
+  res.render('qr'); // Assuming you have a qr.ejs file
+});
+
+app.get('/views/payment', (req, res) => {
+    const currentDate = new Date().toLocaleDateString();
+    const transactionId = "your-transaction-id"; // Replace with the actual transaction ID
+    const amountPaid = "your-amount"; // Replace with the actual amount
+  
+    res.render('payment', { currentDate, transactionId, amountPaid });
+  });
+  app.post('/views/payment', async (req, res) => {
+    try {
+      const amount = req.body.amount;
+  
+      if (!amount) {
+        return res.status(400).json({ message: 'Amount is required' });
+      }
+  
+      // Create a new payment document
+      const newPayment = new Payment({ amount });
+  
+      // Save the payment to the 'Payment' collection within the 'banktrans' database
+      await newPayment.save();
+  
+      // Generate a fake transaction ID (you can use a library to generate a unique ID)
+      const transactionId = generateTransactionId();
+  
+      // Redirect to the payment view with transaction details
+      const currentDate = new Date().toLocaleDateString();
+      const amountPaid = amount; // Assuming you have the amount variable defined
+      res.render('payment', { currentDate, transactionId, amountPaid });
+    } catch (error) {
+      console.error('Error generating transaction details:', error);
+      res.status(500).json({ message: 'Error generating transaction details.' });
+    }
+  });
+  
+function generateTransactionId() {
+  // You can use a library like uuid to generate a unique transaction ID
+  // For simplicity, I'll use a simple timestamp-based ID here
+  return Date.now().toString();
+}
+
+const port = 2000;
+app.listen(port, () => {
+  console.log(`Server running on port: ${port}`);
+});
