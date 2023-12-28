@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="favicon.jpg">
+    <title>Customer Portal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/bankingDetails.css">
+</head>
+<body>
+    <header>
+        <h1>CUSTOMER PORTAL</h1>
+        <nav>
+            <ul class="nav-list">
+                <li><a class="nav-link" href="/customer portal">Link Bank Account</a></li>
+                <li><a class="nav-link" href="/qr">QR Generation</a></li>
+            </ul>
+        </nav>
+        <div>
+            <a href="home page.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
+                </svg>
+            </a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="account-details">
+            <form id="myForm" onsubmit="return validateForm()">
+                <h2>Add Bank Details</h2>
+                <div class="form-group">
+                    <label for="account-holder-name">Account Holder Name:</label>
+                    <input type="text" id="account-holder-name" name="accountHolderName" required>
+                    <span id="error-account-holder-name" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="account-number">Account Number:</label>
+                    <input type="text" id="account-number" name="accountNumber" required>
+                    <span id="error-account-number" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="ifsc-code">IFSC Code:</label>
+                    <input type="text" id="ifsc-code" name="ifscCode" required>
+                    <span id="error-ifsc-code" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="bank-name">Bank Name:</label>
+                    <input type="text" id="bank-name" name="bankName" required>
+                    <span id="error-bank-name" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email">
+                    <span id="error-email" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="phone-number">Phone Number:</label>
+                    <input type="text" id="phone-number" name="phoneNumber" required>
+                    <span id="error-phone-number" class="error"></span>
+                </div>
+                <button class="center-block" type="submit" onclick="add()">Add</button>
+                <script>
+                    function add() {
+                      // Redirect to another page
+                      window.location.href = '/qr';
+                    }
+                    
+                  </script>
+                <button class="center-block" onclick="cancelpage()">Cancel</button>
+            </form>
+        </div>
+        <p id="validation-error" class="error"></p>
+    </div>
+</body>
+<script src="bankingDetails.js" defer></script>
+
+</html>

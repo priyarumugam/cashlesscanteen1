@@ -1,0 +1,96 @@
+body {
+    background-image: url('/css/white.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.payment-success {
+    background-color:rgba(181, 150, 211, 0.885);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 20px;
+}
+
+.payment-success h1 {
+    color: #faffff;
+}
+
+.payment-success p {
+    margin: 10px 0;
+    color: #faffff;
+}
+
+.tran {
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+}
+
+.tran form {
+    background-color: #ce1c1c; /* Set the background color for the form within .tran */
+}
+
+
+.payment-success strong {
+    font-weight: bold;
+    color: white;
+}
+
+#tick-mark {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+
+#tick-mark::before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 50%;
+    width: 5px;
+    background-color: #5a0fd3;
+    content: "";
+    transform: translateX(10px) rotate(-45deg);
+    transform-origin: left bottom;
+}
+
+#tick-mark::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    width: 100%;
+    background-color: #ab1ad7;
+    content: "";
+    transform: translateX(10px) rotate(-45deg);
+    transform-origin: left bottom;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.green-button {
+    background-color: #1d26cd;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.green-button:hover {
+    background-color: #45A049;
+}

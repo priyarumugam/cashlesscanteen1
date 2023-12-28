@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/css/favicon.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  
+  <title>Combined Page</title>
+</head>
+<body>
+  <header>
+    <h1>QR Generation</h1>
+    <div class="home">
+      <a href="home page.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+          <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+        </svg>
+      </a>
+    </div>
+  </header>
+  <form action="/payment" method="post">
+    <div class="container-fluid">
+      <div class="text-center">
+        <img id="qrCode" class="qr-code img-thumbnail img-responsive" />
+      </div>
+    
+      <div class="col-sm-10">
+        <!-- Add the name attribute to the input field -->
+        <input type="number" size="10" maxlength="3" class="form-control" id="content" name="amount" placeholder="Enter amount" />
+      </div>
+    
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="center-block" id="generate">Generate QR</button>
+        </div>
+      </div>
+      <button id="startButton">Start Scanning</button>
+      <div id="scannerContainer" style="display: none;">
+        <div class="ocrloader">
+          <p>Scanning</p>
+          <em></em>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    
+  </form>
+  
+  <script src="https://cdn.jsdelivr.net/gh/jquery/jquery/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/neocotic/qrious/dist/qrious.min.js"></script>
+  <script src="https://cdn.rawgit.com/serratus/quaggaJS/6.4.0/dist/quagga.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script>
+    // Wait for the document to be ready before using jQuery
+    jQuery(document).ready(function () {
+      function htmlEncode(value) {
+        return jQuery('<div/>').text(value).html();
+      }
+  
+      jQuery('#generate').click(function (event) {
+        // Prevent the default form submission
+        event.preventDefault();
+  
+        const amount = jQuery('#content').val();
+        // Log the amount before sending the request
+        console.log("Amount:", amount);
+  
+        // Encode the entered value as the content of the QR code
+        const plainTextValue = amount;
+  
+        const qr = new QRious({
+          element: document.getElementById('qrCode'),
+          value: plainTextValue,
+          size: 160,
+        });
+      });
+  
+      jQuery('#startButton').click(function (event) {
+        // Prevent the default form submission
+        event.preventDefault();
+  
+        // Log the amount before starting the scanning
+        const amount = jQuery('#content').val();
+        console.log("Amount for scanning:", amount);
+  
+        // Hide the start button
+        jQuery(this).hide();
+  
+        // Display the scanning elements
+        jQuery('#scannerContainer').show();
+        jQuery('.ocrloader').addClass('animate'); 
+        // Add the 'animate' class to trigger the animation
+
+        // Perform the scanning logic here
+        // You can use Quagga.js or any other library for scanning
+        // Example: quagga.start();
+      });
+    });
+  </script>
+  
+</body>
+</html>

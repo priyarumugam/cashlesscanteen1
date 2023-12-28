@@ -1,0 +1,209 @@
+body {
+    background-image: url('/css/white.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  justify-content: center;
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  color: black;
+  margin: 20px;
+  text-align: center;
+}
+
+header {
+  background-color: rgba(181, 150, 211, 0.885);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.home {
+  text-align: left;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 40px;
+  font-weight: normal;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+}
+
+.container-fluid {
+  width: 300px;
+  background-color: rgba(181, 150, 211, 0.885);
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 32px;
+  margin-left: -10px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.qr-code {
+  max-width: 200px;
+  margin: 10px auto;
+}
+
+#content {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+button.center-block {
+  margin: 20px auto;
+  align-items: center;
+  display: block;
+  width: 60%;
+  line-height: 2em;
+  background: rgb(10, 85, 156);
+  border-radius: 5px;
+  border: 0;
+  border-top: 1px solid #000000;
+  color: #FFFFFF;
+  font-size: 20px;
+  text-align: center;
+}
+
+button.center-block:hover {
+  background: linear-gradient(to bottom, #45A049 0%, #45A049 100%);
+}
+
+button.center-block:active {
+  box-shadow: inset 0 0 5px #000;
+  background: linear-gradient(to bottom, #45A049 0%, #45A049 100%);
+}
+
+button.center-block:focus {
+  outline: none;
+  border-color: green;
+}
+
+.form-control {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.ocrloader p::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #18c89b;
+  position: relative;
+  right: 4px;
+}
+
+.ocrloader p {
+  color: #18c89b;
+  position: absolute;
+  bottom: -30px;
+  left: 38%;
+  font-size: 16px;
+  font-weight: 600;
+  animation: blinker 3s linear infinite;
+  font-family: sans-serif;
+  text-transform: uppercase;
+}
+
+.ocrloader {
+  width: 250px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: 10%;
+  backface-visibility: hidden;
+}
+
+.ocrloader span {
+  position: absolute;
+  left: 35px;
+  top: 0;
+  width: 85%;
+  height: 5px;
+  background-color: #18c89b;
+  box-shadow: 0 0 10px 1px #18c89b, 0 0 1px 1px #18c89b;
+  z-index: 1;
+  transform: translateY(95px);
+  animation: move 3s cubic-bezier(0.15, 0.54, 0.76, 0.74);
+  animation-iteration-count: infinite;
+}
+
+.ocrloader:before,
+.ocrloader:after,
+.ocrloader em:after,
+.ocrloader em:before {
+  border-color: #18c89b;
+  content: "";
+  position: absolute;
+  width: 45px;
+  height: 46px;
+  border-style: solid;
+  border-width: 0px;
+}
+
+.ocrloader:before {
+  left: 0;
+  top: 0;
+  border-left-width: 5px;
+  border-top-width: 5px;
+  border-radius: 2px 0 0 0;
+}
+
+.ocrloader:after {
+  right: 0;
+  top: 0;
+  border-right-width: 5px;
+  border-top-width: 5px;
+  border-radius: 0 5px 0 0;
+}
+
+.ocrloader em:before {
+  left: 0;
+  bottom: 0;
+  border-left-width: 5px;
+  border-bottom-width: 5px;
+  border-radius: 0 0 0 5px;
+}
+
+.ocrloader em:after {
+  right: 0;
+  bottom: 0;
+  border-right-width: 5px;
+  border-bottom-width: 5px;
+  border-radius: 0 0 5px 0;
+}
+
+@keyframes move {
+  0%, 100% {
+      transform: translateY(100px);
+  }
+  50% {
+      transform: translateY(0%);
+  }
+  75% {
+      transform: translateY(160px);
+  }
+}
+
+@keyframes blinker {
+  50% {
+      opacity: 0;
+  }
+}

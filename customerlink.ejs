@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="/css/favicon.jpg"> 
+    <title>Customer Portal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/bankingDetails.css">
+</head>
+<body>
+    <header>
+        
+        <h1>CUSTOMER PORTAL</h1>
+        <nav>
+            <a class="nav-link" href="/bankingDetails">Link Bank Account</a>
+            <a class="nav-link" href="/qr">QR payment</a>
+        </nav>
+        <form action="/customerlink" method="post"></form>
+        <div >
+            <a href="/home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>>
+              </svg></a></div>
+             <a href="/home">
+            <div class="logout-container">
+                <button class="logout-button" onclick="logout()" ><a class="nav-link"
+                     href="/home">
+                    Logout</button></div></a>
+            </a>
+            </div>
+        </div>
+    </header>
+    <script>
+        function logout() {
+            // Add your logout logic here
+            alert("Logout button clicked!");
+        }
+    </script>
+    
+</body>
+</html>

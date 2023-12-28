@@ -1,0 +1,42 @@
+/* Reset or Normalize CSS goes here if desired */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/css/qr_select.jpg');
+    background-size:cover;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh; /* This ensures that the body takes at least the full height of the viewport. */
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #33333337;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: larger;
+}
+
+
+nav a {
+    color: hsla(257, 14%, 90%, 0.895);
+    padding-left: 0%;
+    font-size: larger;
+}
+
+section {
+    margin: 20px;
+}
+
+
+footer {
+    background-color: #33333337;
+    color: #0f0e0e; 
+    padding: 10px;
+    margin-top: auto;
+}
